@@ -30,10 +30,12 @@ async def predict(file: UploadFile ):
     prediction = np.argmax(model.predict(img_array))
     # logging.info(f"Prediction: {prediction}")
     # if prediction
-    if int(prediction) ==1 :
-        result = 'Not_Alzheimer'
-    else : 
+    print(prediction)
+
+    if int(prediction) == 0:
         result = 'Alzheimer'
+    else : 
+        result = 'Not_Alzheimer'
 
     return {"prediction": result}
 
